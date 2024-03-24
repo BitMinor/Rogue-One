@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://asset/assets/theme_btn.theme" type="Theme" id=1]
+[ext_resource path="res://code/the_end.gd" type="Script" id=2]
+[ext_resource path="res://asset/assets/logo.png" type="Texture" id=3]
+
+[node name="the_end" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.1
+margin_left = -185.0
+margin_right = 185.0
+margin_bottom = 140.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -75.0
+margin_right = 120.0
+margin_bottom = 75.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect/VBox"]
+margin_right = 240.0
+margin_bottom = 23.0
+text = "You lose noob !"
+align = 1
+valign = 1
+
+[node name="btn_retry" type="Button" parent="ColorRect/VBox"]
+margin_top = 27.0
+margin_right = 240.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "retry"
+
+[node name="btn_exit" type="Button" parent="ColorRect/VBox"]
+margin_top = 90.0
+margin_right = 240.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "exit"
+
+[node name="tw" type="Tween" parent="."]
+[connection signal="pressed" from="ColorRect/VBox/btn_retry" to="." method="_on_btn_retry_pressed"]
+[connection signal="pressed" from="ColorRect/VBox/btn_exit" to="." method="_on_btn_exit_pressed"]
